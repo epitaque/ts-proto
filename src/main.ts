@@ -1419,13 +1419,13 @@ function generateEncode(ctx: Context, fullName: string, messageDesc: DescriptorP
           ${writeSnippet(`message.${fieldName}`)};
         }
       `);
-    } else if (isScalar(field) || isEnum(field)) {
+    } /*else if (isScalar(field) || isEnum(field)) {
       chunks.push(code`
         if (${notDefaultCheck(ctx, field, messageDesc.options, `message.${fieldName}`)}) {
           ${writeSnippet(`message.${fieldName}`)};
         }
       `);
-    } else {
+    } */ else {
       chunks.push(code`${writeSnippet(`message.${fieldName}`)};`);
     }
   });
